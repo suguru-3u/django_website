@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Django_site</title>
-</head>
-<body>
-    <div class="navbar">
-        <a href="/">ホーム</a>
-        <a href="about/">自己紹介</a>
-    </div>
-    <h1>自己紹介</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block main %}
+    <h1>about</h1>
+    <h2>実績</h2>
+    <p>{% now "Y年m月d日"%}現在までに{{num_services|intcomma}}個の作りました！</p>
+    <h2>スキル</h2>
+    <ul>
+        {% for skill in skills %}
+        <li>{{skill}}</li>
+        {% empty %}
+        <li>スキルがありません</li>
+        {% endfor %}
+    </ul>
+    <h1>{{ context1 }}</h1>
+{% endblock %}

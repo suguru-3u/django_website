@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Django_site</title>
-</head>
-<body>
-    <div class="navbar">
-            <a href="/">ホーム</a>
-            <a href="about/">自己紹介</a>
-    </div>
-    <h1>Hello Django</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    <h1>home</h1>
+    <h2>{{username}}さんようこそ！</h2>
+    <img src="{% static 'welcome.jpg' %}" />
+    <h1>{{ context1 }}</h1>
+{% endblock %}
